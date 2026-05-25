@@ -27,7 +27,7 @@ jobs:
       - name: Install
         run: |
           python -m pip install -U pip
-          pip install jupyterlite jupyter-server jupyter-pyodide-kernel
+          pip install jupyterlite jupyter-server jupyterlite-pyodide-kernel
  
       - name: Build
         run: |
