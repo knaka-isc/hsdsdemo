@@ -31,7 +31,7 @@ jobs:
  
       - name: Build
         run: |
-          jupyter lite build --contents content --output-dir _output
+          jupyter lite build --contents content --output-dir _output --base-url /hsdsdemo/
  
       - uses: actions/configure-pages@v5
  
