@@ -22,16 +22,21 @@ jobs:
  
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
  
       - name: Install
         run: |
           python -m pip install -U pip
           pip install jupyterlite jupyter-server jupyterlite-pyodide-kernel seaborn
- 
+
+      - name: Download seaborn wheel
+        run: |
+          mkdir -p pypi
+          python -m pip download --no-deps --only-binary=:all: -d pypi seaborn
+
       - name: Build
         run: |
-          jupyter lite build --contents content --output-dir _output --base-url /hsdsdemo/ --force
+          jupyter lite build --contents content --output-dir _output --piplite-wheels pypi/*.whl --base-url /hsdsdemo/ --force
  
       - uses: actions/configure-pages@v5
  
