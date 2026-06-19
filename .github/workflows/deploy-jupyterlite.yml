@@ -42,6 +42,7 @@ jobs:
             --output-dir _output \
             --piplite-wheels wheels/*.whl \
             --base-url /hsdsdemo/ \
+            --no-sourcemaps \
             --force
 
       - uses: actions/configure-pages@v5
